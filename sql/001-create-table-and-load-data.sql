@@ -3,7 +3,7 @@ DROP TABLE IF EXISTS movies;
 CREATE TABLE movies (
   id int unsigned AUTO_INCREMENT COMMENT "映画ID",
   name VARCHAR(20) NOT NULL COMMENT "映画名",
-  published_year int COMMENT "公開年",
+  published_year int NOT NULL COMMENT "公開年",
   series VARCHAR(20) NOT NULL COMMENT "シリーズ",
   PRIMARY KEY(id)
  ) COMMENT="映画一覧";
