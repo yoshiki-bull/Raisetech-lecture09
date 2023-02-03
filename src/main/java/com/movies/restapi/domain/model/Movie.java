@@ -1,5 +1,10 @@
 package com.movies.restapi.domain.model;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class Movie {
 
     private int id;
@@ -12,21 +17,5 @@ public class Movie {
         this.name = name;
         this.publishedYear = publishedYear;
         this.series = series;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public int getPublishedYear() {
-        return publishedYear;
-    }
-
-    public String getSeries() {
-        return series;
     }
 }

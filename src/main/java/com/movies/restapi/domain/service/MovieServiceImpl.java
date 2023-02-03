@@ -1,8 +1,8 @@
 package com.movies.restapi.domain.service;
 
 import com.movies.restapi.domain.model.Movie;
+import com.movies.restapi.infrastructure.InsertForm;
 import com.movies.restapi.infrastructure.MovieMapper;
-import org.apache.ibatis.javassist.NotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -24,5 +24,10 @@ public class MovieServiceImpl implements MovieService {
     @Override
     public Optional<Movie> findById(int id) {
         return  movieMapper.findById(id);
+    }
+
+    @Override
+    public void insertMovie(InsertForm form) {
+        movieMapper.insertMovie(form);
     }
 }

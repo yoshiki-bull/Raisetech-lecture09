@@ -1,6 +1,7 @@
 package com.movies.restapi.infrastructure;
 
 import com.movies.restapi.domain.model.Movie;
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
@@ -14,4 +15,7 @@ public interface MovieMapper {
 
     @Select("SELECT * FROM movies WHERE id = #{id}")
     Optional<Movie> findById(int id);
+
+    @Insert("INSERT INTO movies(name, published_year, series) VALUES(#{name}, #{publishedYear}, #{series})")
+    void insertMovie(InsertForm form);
 }
