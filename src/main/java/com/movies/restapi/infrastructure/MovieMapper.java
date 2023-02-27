@@ -16,6 +16,6 @@ public interface MovieMapper {
     @Select("SELECT * FROM movies WHERE id = #{id}")
     Optional<Movie> findById(int id);
 
-    @Insert("INSERT INTO movies(name, published_year, series) VALUES(#{name}, #{publishedYear}, #{series})")
-    void insertMovie(InsertForm form);
+    @Select("SELECT * FROM movies WHERE series = #{series}")
+    Optional<Movie> findBySeries(String series);
 }

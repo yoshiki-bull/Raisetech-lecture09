@@ -9,7 +9,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class InsertForm {
+public class CreateForm {
 
     private  int id;
 

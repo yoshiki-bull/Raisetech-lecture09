@@ -8,9 +8,9 @@ CREATE TABLE movies (
   PRIMARY KEY(id)
  ) COMMENT="映画一覧";
 
-INSERT INTO movies (name, published_year, series) VALUES ("Iron Man", 2008, "Iron man");
-INSERT INTO movies (name, published_year, series) VALUES ("Iron Man 2", 2010, "Iron man");
-INSERT INTO movies (name, published_year, series) VALUES ("Iron Man 3", 2013, "Iron man");
-INSERT INTO movies (name, published_year, series) VALUES ("Spider-Man", 2002, "Spider-Man");
-INSERT INTO movies (name, published_year, series) VALUES ("Spider-Man 2 ", 2004, "Spider-Man");
-INSERT INTO movies (name, published_year, series) VALUES ("Spider-Man 3", 2007, "Spider-Man");
+INSERT INTO movies (name, published_year, series) VALUES ("Iron Man", 2008, "IronMan");
+INSERT INTO movies (name, published_year, series) VALUES ("Iron Man 2", 2010, "IronMan");
+INSERT INTO movies (name, published_year, series) VALUES ("Iron Man 3", 2013, "IronMan");
+INSERT INTO movies (name, published_year, series) VALUES ("Spider-Man", 2002, "SpiderMan");
+INSERT INTO movies (name, published_year, series) VALUES ("Spider-Man 2 ", 2004, "SpiderMan");
+INSERT INTO movies (name, published_year, series) VALUES ("Spider-Man 3", 2007, "SpiderMan");
