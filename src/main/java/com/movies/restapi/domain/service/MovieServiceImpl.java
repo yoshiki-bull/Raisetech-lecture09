@@ -12,23 +12,17 @@ import java.util.Optional;
 public class MovieServiceImpl implements MovieService {
     private MovieMapper movieMapper;
 
-    public MovieServiceImpl(MovieMapper movieMapper) {
-        this.movieMapper = movieMapper;
-    }
+    public MovieServiceImpl(MovieMapper movieMapper) { this.movieMapper = movieMapper; }
 
     @Override
-    public List<Movie> findAll() {
-        return movieMapper.findAll();
-    }
+    public List<Movie> findAll() { return movieMapper.findAll(); }
 
     @Override
-    public Optional<Movie> findById(int id) {
-        return movieMapper.findById(id);
-    }
+    public Optional<Movie> findById(int id) { return movieMapper.findById(id); }
 
     @Override
-    public Optional<Movie> findBySeries(String series) {
-        return movieMapper.findBySeries(series);
-    }
+    public Optional<Movie> findBySeries(String series) { return movieMapper.findBySeries(series); }
 
+    @Override
+    public void createMovie(CreateForm form) { movieMapper.createMovie(form); }
 }
