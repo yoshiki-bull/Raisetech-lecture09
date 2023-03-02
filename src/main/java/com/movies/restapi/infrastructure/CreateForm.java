@@ -13,7 +13,7 @@ import java.util.Map;
 @AllArgsConstructor
 public class CreateForm {
 
-    private final String PUBLISHED_YEAR = "^(18[0-9][0-9]|19[0-9][0-9]|20[0-2][0-9])$";
+    private static final String PUBLISHED_YEAR = "^(18[0-9][0-9]|19[0-9][0-9]|20[0-2][0-9])$";
 
     private int id;
 

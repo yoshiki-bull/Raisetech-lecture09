@@ -3,6 +3,7 @@ package com.movies.restapi.infrastructure;
 import com.movies.restapi.domain.model.Movie;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
@@ -20,5 +21,6 @@ public interface MovieMapper {
     Optional<Movie> findBySeries(String series);
 
     @Insert("INSERT INTO movies (name, published_year, series) VALUES (#{name}, #{publishedYear}, #{series})")
+    @Options(useGeneratedKeys = true, keyProperty = "id")
     void createMovie(CreateForm form);
 }
