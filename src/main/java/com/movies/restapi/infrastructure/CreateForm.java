@@ -30,9 +30,6 @@ public class CreateForm {
     private String series;
 
     public Map<String, String> message() {
-        this.name = name;
-        this.publishedYear = publishedYear;
-        this.series = series;
-        return Map.of("message", "movie successfully created", "name", name, "published-year", publishedYear, "series", series);
+        return Map.of("message", "movie successfully  created", "name", name, "published-year", publishedYear, "series", series);
     }
 }
