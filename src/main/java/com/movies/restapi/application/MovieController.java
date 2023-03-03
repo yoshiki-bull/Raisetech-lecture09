@@ -44,11 +44,13 @@ public class MovieController {
 
     @PatchMapping("/{id}")
     public ResponseEntity<Map<String, String>> update(@PathVariable("id") int id, @RequestBody UpdateForm form) {
+        movieService.updateMovie(id, form);
         return ResponseEntity.ok(form.message());
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Map<String, String>> delete(@PathVariable("id") int id) {
+        movieService.deleteMovie(id);
         return ResponseEntity.noContent().build();
     }
 }
