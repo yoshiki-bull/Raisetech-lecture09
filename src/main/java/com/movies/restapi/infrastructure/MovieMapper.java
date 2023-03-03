@@ -25,4 +25,7 @@ public interface MovieMapper {
 
     @Update("UPDATE movies SET name = #{name}, published_year = #{publishedYear}, series = #{series}  WHERE id = #{id}")
     void updateMovie(UpdateForm form);
+
+    @Delete("DELETE FROM movies WHERE id = #{id}")
+    void deleteMovie();
 }

@@ -46,4 +46,9 @@ public class MovieController {
     public ResponseEntity<Map<String, String>> update(@PathVariable("id") int id, @RequestBody UpdateForm form) {
         return ResponseEntity.ok(form.message());
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Map<String, String>> delete(@PathVariable("id") int id) {
+        return ResponseEntity.noContent().build();
+    }
 }
