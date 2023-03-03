@@ -1,8 +1,9 @@
 package com.movies.restapi.domain.service;
 
 import com.movies.restapi.domain.model.Movie;
-import com.movies.restapi.infrastructure.CreateForm;
+import com.movies.restapi.domain.repository.CreateForm;
 import com.movies.restapi.infrastructure.MovieMapper;
+import com.movies.restapi.domain.repository.UpdateForm;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -25,4 +26,7 @@ public class MovieServiceImpl implements MovieService {
 
     @Override
     public void createMovie(CreateForm form) { movieMapper.createMovie(form); }
+
+    @Override
+    public void updateMovie(int id, UpdateForm from) { movieMapper.updateMovie(from); }
 }

@@ -1,4 +1,4 @@
-package com.movies.restapi.infrastructure;
+package com.movies.restapi.domain.repository;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
@@ -30,6 +30,6 @@ public class CreateForm {
     private String series;
 
     public Map<String, String> message() {
-        return Map.of("message", "movie successfully  created", "name", name, "published-year", publishedYear, "series", series);
+        return Map.of("message", "movie successfully created", "name", name, "published_year", publishedYear, "series", series);
     }
 }

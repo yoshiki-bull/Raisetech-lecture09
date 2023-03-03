@@ -1,8 +1,9 @@
 package com.movies.restapi.application;
 
 import com.movies.restapi.domain.model.Movie;
+import com.movies.restapi.domain.repository.UpdateForm;
 import com.movies.restapi.domain.service.MovieService;
-import com.movies.restapi.infrastructure.CreateForm;
+import com.movies.restapi.domain.repository.CreateForm;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -39,5 +40,10 @@ public class MovieController {
                 .build()
                 .toUri();
         return ResponseEntity.created(uri).body(form.message());
+    }
+
+    @PatchMapping("/{id}")
+    public ResponseEntity<Map<String, String>> update(@PathVariable("id") int id, @RequestBody UpdateForm form) {
+        return ResponseEntity.ok(form.message());
     }
 }

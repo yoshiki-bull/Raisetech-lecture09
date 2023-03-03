@@ -1,10 +1,9 @@
 package com.movies.restapi.infrastructure;
 
 import com.movies.restapi.domain.model.Movie;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Options;
-import org.apache.ibatis.annotations.Select;
+import com.movies.restapi.domain.repository.CreateForm;
+import com.movies.restapi.domain.repository.UpdateForm;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 import java.util.Optional;
@@ -23,4 +22,7 @@ public interface MovieMapper {
     @Insert("INSERT INTO movies (name, published_year, series) VALUES (#{name}, #{publishedYear}, #{series})")
     @Options(useGeneratedKeys = true, keyProperty = "id")
     void createMovie(CreateForm form);
+
+    @Update("UPDATE movies SET name = #{name}, published_year = #{publishedYear}, series = #{series}  WHERE id = #{id}")
+    void updateMovie(UpdateForm form);
 }
