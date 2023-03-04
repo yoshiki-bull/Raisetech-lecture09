@@ -22,9 +22,6 @@ public class MovieServiceImpl implements MovieService {
     public Optional<Movie> findById(int id) { return movieMapper.findById(id); }
 
     @Override
-    public Optional<Movie> findBySeries(String series) { return movieMapper.findBySeries(series); }
-
-    @Override
     public void createMovie(CreateForm form) { movieMapper.createMovie(form); }
 
     @Override

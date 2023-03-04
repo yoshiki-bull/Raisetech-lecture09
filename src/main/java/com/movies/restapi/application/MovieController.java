@@ -22,16 +22,11 @@ public class MovieController {
 
     public MovieController(MovieService movieService) { this.movieService = movieService; }
 
-    @RequestMapping(value = "", method = RequestMethod.GET)
+    @GetMapping
     public List<Movie> getMovies() { return movieService.findAll(); }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    @GetMapping("/{id}")
     public Optional<Movie> getMovie(@PathVariable("id") int id) { return movieService.findById(id); }
-
-    @GetMapping("/series")
-    public Optional<Movie> getSeries(@RequestParam(value = "series") String series) {
-        return movieService.findBySeries(series);
-    }
 
     @PostMapping
     public ResponseEntity<Map<String, String>> create(@RequestBody @Validated CreateForm form, UriComponentsBuilder uriBuilder) {

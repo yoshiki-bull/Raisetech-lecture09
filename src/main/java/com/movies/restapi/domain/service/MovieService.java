@@ -13,8 +13,6 @@ public interface MovieService {
 
     Optional<Movie> findById(int id);
 
-    Optional<Movie> findBySeries(String series);
-
     void createMovie(CreateForm form);
 
     void updateMovie(int id, UpdateForm form);
