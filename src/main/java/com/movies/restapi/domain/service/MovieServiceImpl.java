@@ -1,5 +1,6 @@
 package com.movies.restapi.domain.service;
 
+import com.movies.restapi.application.MovieResponse;
 import com.movies.restapi.domain.model.Movie;
 import com.movies.restapi.domain.repository.CreateForm;
 import com.movies.restapi.infrastructure.MovieMapper;
@@ -20,6 +21,21 @@ public class MovieServiceImpl implements MovieService {
 
     @Override
     public Optional<Movie> findById(int id) { return movieMapper.findById(id); }
+
+    @Override
+    public List<Movie> findBySeries(String series) {
+        return movieMapper.findBySeries(series);
+    }
+
+    @Override
+    public List<Movie> findByYear(int publishedYear) {
+        return movieMapper.findByPublishedYear(publishedYear);
+    }
+
+    @Override
+    public List<Movie> findByYear(int publishedYear, String series) {
+        return movieMapper.findByYearAndSeries(publishedYear, series);
+    }
 
     @Override
     public void createMovie(CreateForm form) { movieMapper.createMovie(form); }

@@ -22,11 +22,22 @@ public class MovieController {
 
     public MovieController(MovieService movieService) { this.movieService = movieService; }
 
-    @GetMapping
-    public List<Movie> getMovies() { return movieService.findAll(); }
-
     @GetMapping("/{id}")
     public Optional<Movie> getMovie(@PathVariable("id") int id) { return movieService.findById(id); }
+
+    @GetMapping("/search/")
+    public List<MovieResponse> searchMovies(@RequestParam(value = "published_year", required = false) String publishedYear,
+                                            @RequestParam(value = "series", required = false) String series){
+        if (publishedYear != null && series != null) {
+            return movieService.findByYear(Integer.parseInt(publishedYear), series).stream().map(MovieResponse::new).toList();
+        } else if(publishedYear != null) {
+            return movieService.findByYear(Integer.parseInt(publishedYear)).stream().map(MovieResponse::new).toList();
+        } else if(series != null) {
+            return movieService.findBySeries(series).stream().map(MovieResponse::new).toList();
+        } else {
+            return movieService.findAll().stream().map(MovieResponse::new).toList();
+        }
+    }
 
     @PostMapping
     public ResponseEntity<Map<String, String>> create(@RequestBody @Validated CreateForm form, UriComponentsBuilder uriBuilder) {
