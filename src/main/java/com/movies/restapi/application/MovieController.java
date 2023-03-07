@@ -27,9 +27,9 @@ public class MovieController {
 
     @GetMapping("/search/")
     public List<MovieResponse> searchMovies(@RequestParam(value = "published_year", required = false) String publishedYear,
-                                            @RequestParam(value = "series", required = false) String series){
+                                            @RequestParam(value = "series", required = false) String series) {
         if (publishedYear != null && series != null) {
-            return movieService.findByYear(Integer.parseInt(publishedYear), series).stream().map(MovieResponse::new).toList();
+            return movieService.findByYearAndSeries(Integer.parseInt(publishedYear), series).stream().map(MovieResponse::new).toList();
         } else if(publishedYear != null) {
             return movieService.findByYear(Integer.parseInt(publishedYear)).stream().map(MovieResponse::new).toList();
         } else if(series != null) {

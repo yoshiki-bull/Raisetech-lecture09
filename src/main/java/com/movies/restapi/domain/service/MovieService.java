@@ -17,7 +17,7 @@ public interface MovieService {
 
     List<Movie> findByYear(int publishedYear);
 
-    List<Movie> findByYear(int publishedYear, String series);
+    List<Movie> findByYearAndSeries(int publishedYear, String series);
 
     void createMovie(CreateForm form);
 
