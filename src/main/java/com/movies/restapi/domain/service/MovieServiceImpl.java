@@ -28,7 +28,7 @@ public class MovieServiceImpl implements MovieService {
     }
 
     @Override
-    public List<Movie> findByYear(int publishedYear) {
+    public List<Movie> findByPublishedYear(int publishedYear) {
         return movieMapper.findByPublishedYear(publishedYear);
     }
 

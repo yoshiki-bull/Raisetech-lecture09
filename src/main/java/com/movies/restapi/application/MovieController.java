@@ -31,7 +31,7 @@ public class MovieController {
         if (publishedYear != null && series != null) {
             return movieService.findByYearAndSeries(Integer.parseInt(publishedYear), series).stream().map(MovieResponse::new).toList();
         } else if(publishedYear != null) {
-            return movieService.findByYear(Integer.parseInt(publishedYear)).stream().map(MovieResponse::new).toList();
+            return movieService.findByPublishedYear(Integer.parseInt(publishedYear)).stream().map(MovieResponse::new).toList();
         } else if(series != null) {
             return movieService.findBySeries(series).stream().map(MovieResponse::new).toList();
         } else {
@@ -49,7 +49,7 @@ public class MovieController {
     }
 
     @PatchMapping("/{id}")
-    public ResponseEntity<Map<String, String>> update(@PathVariable("id") int id, @RequestBody UpdateForm form) {
+    public ResponseEntity<Map<String, String>> update(@PathVariable("id") int id, @RequestBody @Validated UpdateForm form) {
         movieService.updateMovie(id, form);
         return ResponseEntity.ok(form.message());
     }
