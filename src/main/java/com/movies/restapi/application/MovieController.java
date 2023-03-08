@@ -1,9 +1,8 @@
 package com.movies.restapi.application;
 
+import com.movies.restapi.domain.exception.MovieNotFoundException;
 import com.movies.restapi.domain.model.Movie;
-import com.movies.restapi.domain.repository.UpdateForm;
 import com.movies.restapi.domain.service.MovieService;
-import com.movies.restapi.domain.repository.CreateForm;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -23,7 +22,9 @@ public class MovieController {
     public MovieController(MovieService movieService) { this.movieService = movieService; }
 
     @GetMapping("/{id}")
-    public Optional<Movie> getMovie(@PathVariable("id") int id) { return movieService.findById(id); }
+    public Movie getMovie(@PathVariable("id") int id) {
+        return movieService.findById(id).orElseThrow(() -> new MovieNotFoundException(id));
+    }
 
     @GetMapping("/search/")
     public List<MovieResponse> searchMovies(@RequestParam(value = "published_year", required = false) String publishedYear,

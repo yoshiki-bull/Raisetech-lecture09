@@ -1,4 +1,4 @@
-package com.movies.restapi.domain.repository;
+package com.movies.restapi.application;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;

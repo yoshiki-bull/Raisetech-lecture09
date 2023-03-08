@@ -1,8 +1,8 @@
 package com.movies.restapi.infrastructure;
 
 import com.movies.restapi.domain.model.Movie;
-import com.movies.restapi.domain.repository.CreateForm;
-import com.movies.restapi.domain.repository.UpdateForm;
+import com.movies.restapi.application.CreateForm;
+import com.movies.restapi.application.UpdateForm;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;

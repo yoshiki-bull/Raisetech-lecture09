@@ -1,8 +1,8 @@
 package com.movies.restapi.domain.service;
 
 import com.movies.restapi.domain.model.Movie;
-import com.movies.restapi.domain.repository.CreateForm;
-import com.movies.restapi.domain.repository.UpdateForm;
+import com.movies.restapi.application.CreateForm;
+import com.movies.restapi.application.UpdateForm;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.cache.annotation.Caching;
