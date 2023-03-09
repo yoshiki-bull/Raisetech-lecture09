@@ -19,7 +19,7 @@ public class UpdateForm {
     private int id;
 
     @NotBlank
-    @Length(max = 20)
+    @Length(max = 100)
     private String name;
 
     @NotBlank
@@ -29,8 +29,4 @@ public class UpdateForm {
     @NotBlank
     @Length(max = 20)
     private String series;
-
-    public Map<String, String> message() {
-        return Map.of("message", "movie successfully updated", "name", name, "published_year", publishedYear, "series", series);
-    }
 }

@@ -18,7 +18,7 @@ public class CreateForm {
     private int id;
 
     @NotBlank
-    @Length(max = 20)
+    @Length(max = 100)
     private String name;
 
     @NotBlank
@@ -28,8 +28,4 @@ public class CreateForm {
     @NotBlank
     @Length(max = 20)
     private String series;
-
-    public Map<String, String> message() {
-        return Map.of("message", "movie successfully created", "name", name, "published_year", publishedYear, "series", series);
-    }
 }

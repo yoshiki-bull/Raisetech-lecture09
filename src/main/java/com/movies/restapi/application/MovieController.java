@@ -41,18 +41,20 @@ public class MovieController {
     }
 
     @PostMapping
-    public ResponseEntity<Map<String, String>> create(@RequestBody @Validated CreateForm form, UriComponentsBuilder uriBuilder) {
+    public ResponseEntity<MovieCreateResponse> create(@RequestBody @Validated CreateForm form, UriComponentsBuilder uriBuilder) {
         movieService.createMovie(form);
+        MovieCreateResponse movieCreateResponse = new MovieCreateResponse(form);
         URI uri = uriBuilder.path("/movies/" + form.getId())
                 .build()
                 .toUri();
-        return ResponseEntity.created(uri).body(form.message());
+        return ResponseEntity.created(uri).body(movieCreateResponse);
     }
 
     @PatchMapping("/{id}")
-    public ResponseEntity<Map<String, String>> update(@PathVariable("id") int id, @RequestBody @Validated UpdateForm form) {
+    public ResponseEntity<MovieUpdateResponse> update(@PathVariable("id") int id, @RequestBody @Validated UpdateForm form) {
         movieService.updateMovie(id, form);
-        return ResponseEntity.ok(form.message());
+        MovieUpdateResponse movieUpdateResponse = new MovieUpdateResponse(form);
+        return ResponseEntity.ok(movieUpdateResponse);
     }
 
     @DeleteMapping("/{id}")

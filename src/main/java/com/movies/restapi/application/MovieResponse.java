@@ -2,10 +2,8 @@ package com.movies.restapi.application;
 
 import com.movies.restapi.domain.model.Movie;
 import lombok.Getter;
-import lombok.Setter;
 
 @Getter
-@Setter
 public class MovieResponse {
 
     private int id;
