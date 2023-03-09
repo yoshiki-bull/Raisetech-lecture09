@@ -11,7 +11,6 @@ import org.springframework.web.util.UriComponentsBuilder;
 import java.net.URI;
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/movies")
@@ -26,6 +25,7 @@ public class MovieController {
         return movieService.findById(id).orElseThrow(() -> new MovieNotFoundException(id));
     }
 
+    //nullチェックをするためにString型でチェックして、その後DBに登録するために型変換してます。
     @GetMapping("/search/")
     public List<MovieResponse> searchMovies(@RequestParam(value = "published_year", required = false) String publishedYear,
                                             @RequestParam(value = "series", required = false) String series) {
