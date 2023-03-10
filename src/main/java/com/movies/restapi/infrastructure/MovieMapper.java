@@ -35,8 +35,8 @@ public interface MovieMapper {
     //deleteMovie(int id)として、削除するidをServiceで渡してあげるとよいです。
     //まずはdeleteに関して対応してみてください。
 
-    @Update("UPDATE movies SET name = #{name}, published_year = #{publishedYear}, series = #{series}  WHERE id = #{id}")
-    void updateMovie(UpdateForm form);
+    @Update("UPDATE movies SET name = #{form.name}, published_year = #{form.publishedYear}, series = #{form.series} WHERE id = #{id}")
+    void updateMovie(int id, UpdateForm form);
 
     @Delete("DELETE FROM movies WHERE id = #{id}")
     void deleteMovie(int id);
