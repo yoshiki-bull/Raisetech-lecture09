@@ -29,9 +29,15 @@ public interface MovieMapper {
     @Options(useGeneratedKeys = true, keyProperty = "id")
     void createMovie(CreateForm form);
 
+    //こちらですが、Mapperに問題がありそうです。
+    //Mapperの実装
+    //deleteのほうがわかりやすいですが、Mapperのメソッドの引数にidを渡さないといけません。
+    //deleteMovie(int id)として、削除するidをServiceで渡してあげるとよいです。
+    //まずはdeleteに関して対応してみてください。
+
     @Update("UPDATE movies SET name = #{name}, published_year = #{publishedYear}, series = #{series}  WHERE id = #{id}")
     void updateMovie(UpdateForm form);
 
     @Delete("DELETE FROM movies WHERE id = #{id}")
-    void deleteMovie();
+    void deleteMovie(int id);
 }
